@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./tools/env.sh
+source ./env.sh
 
 if [ -z $IDF_PATH ]; then
 	export IDF_PATH="$PWD/esp-idf"
