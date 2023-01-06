@@ -6,13 +6,13 @@ if [ -z $IDF_PATH ]; then
 fi
 
 if [ -z $IDF_BRANCH ]; then
-	IDF_BRANCH="release/v4.4"
+	IDF_BRANCH="4.4.3_avoidwifibug"
 fi
 
 if [ -z $AR_PR_TARGET_BRANCH ]; then
-	AR_PR_TARGET_BRANCH="master"
+	AR_PR_TARGET_BRANCH="2.0.4_4.4.3_avoidwifibug"
 fi
-
+$AR_NEW_BRANCH_NAME="2.0.4_4.4.3_avoidwifibug"
 if [ -z $IDF_TARGET ]; then
 	if [ -f sdkconfig ]; then
 		IDF_TARGET=`cat sdkconfig | grep CONFIG_IDF_TARGET= | cut -d'"' -f2`

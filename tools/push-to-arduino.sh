@@ -1,6 +1,6 @@
 #!/bin/bash
 source ./tools/config.sh
-
+source ./tools/env.sh
 if [ -x $GITHUB_TOKEN ]; then
 	echo "ERROR: GITHUB_TOKEN was not defined"
 	exit 1
@@ -25,7 +25,7 @@ if [ $AR_HAS_COMMIT == "0" ]; then
 	# did any of the files change?
 	if [ -n "$(git status --porcelain)" ]; then
 		echo "Pushing changes to branch '$AR_NEW_BRANCH_NAME'..."
-	    git add . && git commit --message "$AR_NEW_COMMIT_MESSAGE" && git push -u origin $AR_NEW_BRANCH_NAME
+	    git add . && git commit --message "$AR_NEW_COMMIT_MESSAGE" && git push -u --set-upstream origin $AR_NEW_BRANCH_NAME
 		if [ $? -ne 0 ]; then
 		    echo "ERROR: Pushing to branch '$AR_NEW_BRANCH_NAME' failed"
 			exit 1

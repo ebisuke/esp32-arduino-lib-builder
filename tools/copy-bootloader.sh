@@ -12,3 +12,8 @@ echo "Copying bootloader: $AR_SDK/bin/bootloader_$BOOTCONF.elf"
 mkdir -p "$AR_SDK/bin"
 
 cp "build/bootloader/bootloader.elf" "$AR_SDK/bin/bootloader_$BOOTCONF.elf"
+echo "Copying bootloader: $AR_SDK/bin/bootloader_$BOOTCONF.bin"
+
+mkdir -p "$AR_SDK/bin"
+
+cp "build/bootloader/bootloader.elf" "$AR_SDK/bin/bootloader_$BOOTCONF.bin"
