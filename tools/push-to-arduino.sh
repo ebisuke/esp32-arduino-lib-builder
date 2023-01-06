@@ -1,6 +1,6 @@
 #!/bin/bash
 source ./tools/config.sh
-
+source ./env.sh
 if [ -x $GITHUB_TOKEN ]; then
 	echo "ERROR: GITHUB_TOKEN was not defined"
 	exit 1

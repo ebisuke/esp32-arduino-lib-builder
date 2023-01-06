@@ -6,13 +6,13 @@ if [ -z $IDF_PATH ]; then
 fi
 
 if [ -z $IDF_BRANCH ]; then
-	IDF_BRANCH="release/v4.4"
+	IDF_BRANCH="4.4.3_avoidwifibug"
 fi
 
 if [ -z $AR_PR_TARGET_BRANCH ]; then
-	AR_PR_TARGET_BRANCH="master"
+	AR_PR_TARGET_BRANCH="2.0.4"
 fi
-
+AR_NEW_BRANCH_NAME="2.0.4_4.4.3_avoidwifibug"
 if [ -z $IDF_TARGET ]; then
 	if [ -f sdkconfig ]; then
 		IDF_TARGET=`cat sdkconfig | grep CONFIG_IDF_TARGET= | cut -d'"' -f2`
@@ -28,7 +28,7 @@ IDF_COMPS="$IDF_PATH/components"
 IDF_TOOLCHAIN="xtensa-$IDF_TARGET-elf"
 
 # Owner of the target ESP32 Arduino repository
-AR_USER="espressif"
+AR_USER="ebisuke"
 
 # The full name of the repository
 AR_REPO="$AR_USER/arduino-esp32"
