@@ -25,6 +25,7 @@ if [ $AR_HAS_COMMIT == "0" ]; then
 	# did any of the files change?
 	if [ -n "$(git status --porcelain)" ]; then
 		echo "Pushing changes to branch '$AR_NEW_BRANCH_NAME'..."
+		AR_NEW_COMMIT_MESSAGE="Pushing changes to branch '$AR_NEW_BRANCH_NAME' (Auto)"
 	    git add . && git commit --message "$AR_NEW_COMMIT_MESSAGE" && git push -u --set-upstream origin $AR_NEW_BRANCH_NAME
 		if [ $? -ne 0 ]; then
 		    echo "ERROR: Pushing to branch '$AR_NEW_BRANCH_NAME' failed"
