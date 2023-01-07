@@ -10,9 +10,9 @@ if [ -z $IDF_BRANCH ]; then
 fi
 
 if [ -z $AR_PR_TARGET_BRANCH ]; then
-	AR_PR_TARGET_BRANCH="2.0.4_4.4.3_avoidwifibug"
+	AR_PR_TARGET_BRANCH="2.0.6_4.4.3_avoidwifibug"
 fi
-AR_NEW_BRANCH_NAME="2.0.4_4.4.3_avoidwifibug"
+AR_NEW_BRANCH_NAME="2.0.6_4.4.3_avoidwifibug"
 if [ -z $IDF_TARGET ]; then
 	if [ -f sdkconfig ]; then
 		IDF_TARGET=`cat sdkconfig | grep CONFIG_IDF_TARGET= | cut -d'"' -f2`

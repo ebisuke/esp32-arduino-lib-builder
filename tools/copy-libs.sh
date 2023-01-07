@@ -274,8 +274,8 @@ done
 AR_PLATFORMIO_PY="$AR_TOOLS/platformio-build-$IDF_TARGET.py"
 
 # start generation of platformio-build.py
-awk "/ASFLAGS=\[/{n++}{print>n\"pio_start.txt\"}" $AR_COMPS/arduino/tools/platformio-build-$IDF_TARGET.py
-awk "/\"ARDUINO_ARCH_ESP32\"/{n++}{print>n\"pio_end.txt\"}" 1pio_start.txt
+gawk "/ASFLAGS=\[/{n++}{print>n\"pio_start.txt\"}" $AR_COMPS/arduino/tools/platformio-build-$IDF_TARGET.py
+gawk "/\"ARDUINO_ARCH_ESP32\"/{n++}{print>n\"pio_end.txt\"}" 1pio_start.txt
 cat pio_start.txt > "$AR_PLATFORMIO_PY"
 rm pio_end.txt 1pio_start.txt pio_start.txt
 
@@ -463,9 +463,9 @@ if [ -f "$AR_PLATFORM_TXT" ]; then
 	# use the file we have already compiled for other chips
 	platform_file="$AR_PLATFORM_TXT"
 fi
-awk "/compiler.cpreprocessor.flags.$IDF_TARGET=/{n++}{print>n\"platform_start.txt\"}" "$platform_file"
+gawk "/compiler.cpreprocessor.flags.$IDF_TARGET=/{n++}{print>n\"platform_start.txt\"}" "$platform_file"
 $SED -i "/compiler.cpreprocessor.flags.$IDF_TARGET\=/d" 1platform_start.txt
-awk "/compiler.ar.flags.$IDF_TARGET=/{n++}{print>n\"platform_mid.txt\"}" 1platform_start.txt
+gawk "/compiler.ar.flags.$IDF_TARGET=/{n++}{print>n\"platform_mid.txt\"}" 1platform_start.txt
 rm -rf 1platform_start.txt
 
 cat platform_start.txt > "$AR_PLATFORM_TXT"
